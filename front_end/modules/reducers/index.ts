@@ -10,10 +10,5 @@ const rootReducer = (history: History) => combineReducers({
   auth: AuthenticateReducer,
   router: connectRouter(history),
 })
-// const rootReducer = () => combineReducers({
-//   counter: CounterReducer,
-//   auth: AuthenticateReducer,
-//   router: connectRouter,
-// })
 
 export default rootReducer;

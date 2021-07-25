@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { Component } from 'react';
 import { ConnectedRouter } from 'connected-react-router'
 import {History} from 'history'
-import {history} from './modules/Store'
-import routes from './modules/routes'
-import axios from "axios";
+import routes from './routes/routes'
 
 
 interface AppProps {
@@ -18,9 +15,6 @@ interface AppProps {
       </ConnectedRouter>
       
     )
-
- 
-
 }
   
   export default App

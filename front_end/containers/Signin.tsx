@@ -4,25 +4,11 @@ import { connect } from 'react-redux'
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 
-interface Status {
-    email: string,
-    password: string,
-  }
-
-// interface FormContainerProps {
-//     login(email: string, password: string): void
-//   }
-// class SigninForm extends React.Component {
 export default function SigninForm() {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const state = {
-    //     email: "",
-    //     password: ""
-    // }
-    
-    // public const[email, setUserInfo] = useState('');
+
     const handleSubmit = () => {
         console.log("dispatchだよ");
         console.log(email);
@@ -30,7 +16,6 @@ export default function SigninForm() {
         dispatch(tryLogin(email, password))
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, type:string) => {
-
         if(type === "email"){
             setEmail(e.target.value)
           }else if (type === "password") {
@@ -64,11 +49,3 @@ export default function SigninForm() {
     }
 
 
-//reducerにアクションを通知する関数dispatchをpropsとして渡すため，関数を定義
-// const mapDispatchToProps = (dispatch: React.Dispatch<any>) => ({
-//     login: (email:string, password:string) => dispatch(tryLogin(email, password)),
-//   })
-
- 
-  
-// export default connect(null,mapDispatchToProps)(SigninForm)

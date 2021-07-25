@@ -10,7 +10,7 @@ export type Count = {
 }
 // 設定した型を用いて初期状態を記述
 const initialCounterState: Count = {
-    value: 1000,
+    value: 0,
     increment: true,
     history: [],
 };
@@ -23,7 +23,6 @@ const minute = date.getMinutes();
 export const CounterReducer = (state: Count = initialCounterState, action: CountActionTypes):Count => {
     switch (action.type){
         case ActionTypes.increment: {  
-            console.log("kooooooooooo")
             return{
                 ...state,
                 value: state.value + 1,
@@ -66,43 +65,33 @@ const initialAuthState = {
 export const AuthenticateReducer = (state:Auth = initialAuthState, action: AuthenticateActionTypes) => {
     switch (action.type) {
         case ActionTypes.logout: {
-            console.log("LOGOUT REDUCER!");
-            return Object.assign({}, state, {
-                isLoggedIn: false
-              });
-            // return {
-            //     ...state,
-            //     name: '',
-            //     email:'',
-            //     password: '',
-            //     isLoggedIn: false
-            // }
+            return{
+                ...state,
+                name: "",
+                email: "",
+                password: "",
+                isLoggedIn: false    
+            }      
         }
         case ActionTypes.login: {
-            console.log("HELLO");
             if (Object.keys(action.payload).length === 3 ){
-                return Object.assign({}, state, {
+                return {
+                    ...state,
                     name: action.payload.name,
                     email:action.payload.email,
                     password: action.payload.password,
                     isLoggedIn: true
-                  });
-                // return {
-                //     ...state,
-                //     name: action.payload.name,
-                //     email:action.payload.email,
-                //     password: action.payload.password,
-                //     isLoggedIn: true
-                }else{
+                }; 
+            }else{
                 return state;
             }
         }
+
         case ActionTypes.fail: {
             console.log("FAIL!!");
             return state; 
         }
         default:
-            console.log("AUTHreducerです") ;
             return state;
     }
 }

@@ -50,6 +50,4 @@ interface logout extends Action {
 }
 
 export type AuthenticateActionTypes = login | fail | logout
-export type LoginActionTypes = login
-export type FailActionTypes = fail
-export type LogoutActionTypes = logout
+
